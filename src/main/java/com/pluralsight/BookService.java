@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
@@ -11,6 +12,7 @@ import java.util.List;
 import static jakarta.transaction.Transactional.TxType.REQUIRED;
 import static jakarta.transaction.Transactional.TxType.SUPPORTS;
 
+@Named
 @Transactional(SUPPORTS)
 @ApplicationScoped
 public class BookService {
@@ -30,7 +32,7 @@ public class BookService {
         return query.getResultList();
     }
 
-    public Long count() {
+    public Long countAll() {
         TypedQuery<Long> query = em.createQuery("SELECT count(b) FROM Book b", Long.class);
         return query.getSingleResult();
     }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" lang="en">
+<h:head>
+</h:head>
+
+<h:body>
+    <f:convertDateTime></f:convertDateTime>
+    <f:param></f:param>
+    <f:convertNumber></f:convertNumber>
+    <h1>Bookstore (#{bookService.countAll()})</h1>
+    <p:dataTable var="book" value="#{bookService.findAll()}">
+        <p:column headerText="Isbn">
+            #{book.isbn}
+        </p:column>
+        <p:column headerText="Title">
+            #{book.title}
+        </p:column>
+        <p:column headerText="Cover">
+            <p:graphicImage value="#{book.imageUrl}"/>
+        </p:column>
+    </p:dataTable>
+</h:body>
+</html>
