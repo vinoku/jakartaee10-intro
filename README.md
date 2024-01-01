@@ -1,3 +1,7 @@
+# Important remarks
+1. create.ddl and drop.ddl should be in resources folder so that the database is created using docker
+2. Credentials to connect with pgAdin is: user=quarkus, password=quarkus, server=localhost, port=54234
+
 # bookstore
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
